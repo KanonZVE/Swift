@@ -20,4 +20,5 @@ print(type(of: integerTest))
 print(type(of: stringTest))
 print(type(of: boolTest))
 print(type(of: doubleTest))
+print(stringTest)
 
