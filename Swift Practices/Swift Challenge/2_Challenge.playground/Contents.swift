@@ -41,4 +41,4 @@ print(WithValueReturn(height: 96.5, name: "Joan"))
 print(varStringGlobal)
 
 //No retorna nada
-print(MultiploUnoACien(firstParameter: "Test1", secondParameter: "Test2"))
+print(MultiploUnoACien(firstParameter: "Marco", secondParameter: "Polo"))
