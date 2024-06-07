@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3726B2132C12914A00B7741C /* 3_Challenge.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 3_Challenge.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		374F81162C0DFE720017C233 /* Swift Practices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Practices.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		374F81192C0DFE720017C233 /* Swift_PracticesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_PracticesApp.swift; sourceTree = "<group>"; };
 		374F811B2C0DFE720017C233 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 				376F2D7C2C0FF49600DEC4F0 /* 0_Challenge.playground */,
 				376F2D792C0FEC4A00DEC4F0 /* 1_Challenge.playground */,
 				376F2D7D2C0FF59C00DEC4F0 /* 2_Challenge.playground */,
+				3726B2132C12914A00B7741C /* 3_Challenge.playground */,
 			);
 			path = "Swift Challenge";
 			sourceTree = "<group>";
