@@ -62,3 +62,23 @@ print(studentDictionary)
 
 // Tuples
 
+var studentTupple = (name: "Pedro", surname : "Perez", year: 4, score: 8.9)
+
+// Modify Value
+studentTupple.name = "Carlos"
+print(studentTupple)
+
+// Enum
+
+enum StudentEnum{
+    case name (String)
+    case surname (String, String)
+    case score (Float)
+    case year (Int)
+}
+
+var studentName = StudentEnum.name("Pedro")
+var studentSurname = StudentEnum.surname("Perez", "Gonzalez")
+var studentScore = StudentEnum.score(8.9)
+var studentYear = StudentEnum.year(4)
+
