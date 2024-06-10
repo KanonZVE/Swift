@@ -1,7 +1,7 @@
 
 
 import Foundation
-
+/*
 // Struct
 struct StudentAverage{
     var name:String
@@ -31,6 +31,7 @@ studentClosure("Pedro","Perez",8.5,4)
 var studentArray = ["Pedro Perez", "Jaimito Lozada"]
 
 studentArray.insert("Carlos Sequera", at: 2)
+studentArray.sort()
 print(studentArray)
 
 // Remove the last entry
@@ -81,4 +82,53 @@ var studentName = StudentEnum.name("Pedro")
 var studentSurname = StudentEnum.surname("Perez", "Gonzalez")
 var studentScore = StudentEnum.score(8.9)
 var studentYear = StudentEnum.year(4)
+
+// Extra
+*/
+func MyAgenda(){
+    var selectOption: Int
+    var agenda: Dictionary
+    
+    while selectOption != 5{
+        print("1 - Insert Contact")
+        print("2 - Erase Contact")
+        print("3 - Search Contact")
+        print("4 - Update Contact")
+        print("5 - Exit")
+        print("Select a Valid Option 1-5")
+        selectOption = readLine()!
+        
+        switch selectOption{
+            case (selectOption = 1):
+            case (selectOption = 2):
+            case (selectOption = 3):
+            case (selectOption = 4):
+            case (selectOption = 5):
+            case _:
+                print("Invalid Option, please select a valid option 1 to 5")
+        }
+        
+    }
+    
+    
+    
+}
+
+func insertContact(){
+    
+}
+
+func eraseContact(){
+    
+}
+
+func searchContact(){
+    
+}
+
+func updateContact(){
+    
+}
+
+myAgenda()
 
