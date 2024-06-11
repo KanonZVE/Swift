@@ -58,13 +58,13 @@ studentDictionary[02] = "6 year"
 print(studentDictionary)
 
 // Add Entry
-studentDictionary[01] = "Jaimito Lozada"
+studentDictionary[04] = "Jaimito Lozada"
 print(studentDictionary)
 
 // Tuples
 
 var studentTupple = (name: "Pedro", surname : "Perez", year: 4, score: 8.9)
-
+∫
 // Modify Value
 studentTupple.name = "Carlos"
 print(studentTupple)
@@ -83,16 +83,116 @@ var studentSurname = StudentEnum.surname("Perez", "Gonzalez")
 var studentScore = StudentEnum.score(8.9)
 var studentYear = StudentEnum.year(4)
 
-// Extra
+
 */
+
+
+// Extra
+
+// Función para insertar un nuevo contacto en la agenda
+func insertContact(agenda: inout [String: String]) {
+    // Solicitar al usuario que inserte el nombre del contacto
+    print("Please insert the name:")
+    // Leer la entrada del usuario para el nombre del contacto
+    if let name = readLine() {
+        // Solicitar al usuario que inserte el número de teléfono
+        print("Please insert the phone number:")
+        // Leer la entrada del usuario para el número de teléfono
+        if let phoneNumber = readLine(), let _ = Int(phoneNumber), phoneNumber.count <= 11 {
+            // Validar que el número de teléfono sea numérico y tenga como máximo 11 dígitos
+            // Agregar el nuevo contacto al diccionario agenda
+            agenda[name] = phoneNumber
+            // Imprimir mensaje de éxito
+            print("Contact added successfully")
+        } else {
+            // Imprimir mensaje de error si el número de teléfono es inválido
+            print("Invalid phone number. Please insert a numeric phone number with no more than 11 digits.")
+        }
+    } else {
+        // Imprimir mensaje de error si la entrada del nombre del contacto es inválida
+        print("Invalid input, please try again.")
+    }
+}
+
+// Función para eliminar un contacto de la agenda
+func deleteContact(agenda: inout [String: String]) {
+    // Solicitar al usuario que inserte el nombre del contacto a eliminar
+    print("Please insert the name of the contact to delete:")
+    // Leer la entrada del usuario para el nombre del contacto a eliminar
+    if let name = readLine() {
+        // Verificar si el nombre del contacto existe en la agenda
+        if let _ = agenda.removeValue(forKey: name) {
+            // Si el contacto existe, eliminarlo de la agenda
+            // Imprimir mensaje de éxito
+            print("Contact \(name) deleted successfully.")
+        } else {
+            // Si el contacto no existe, imprimir mensaje de error
+            print("The contact \(name) doesn't exist.")
+        }
+    } else {
+        // Imprimir mensaje de error si la entrada del nombre del contacto es inválida
+        print("Invalid input, please try again.")
+    }
+}
+
+// Función para buscar un contacto en la agenda
+func searchContact(agenda: [String: String]) {
+    // Solicitar al usuario que inserte el nombre del contacto a buscar
+    print("Please insert the name of the contact:")
+    // Leer la entrada del usuario para el nombre del contacto a buscar
+    if let name = readLine() {
+        // Verificar si el nombre del contacto existe en la agenda
+        if let phoneNumber = agenda[name] {
+            // Si el contacto existe, imprimir su número de teléfono
+            print("The \(name)'s number is: \(phoneNumber)")
+        } else {
+            // Si el contacto no existe, imprimir mensaje de error
+            print("The contact \(name) doesn't exist.")
+        }
+    } else {
+        // Imprimir mensaje de error si la entrada del nombre del contacto es inválida
+        print("Invalid input, please try again.")
+    }
+}
+func updateContact(agenda: inout [String: String]) {
+    // Solicitar al usuario que inserte el nombre del contacto a actualizar
+    print("Please insert the name of the contact to update:")
+    // Leer la entrada del usuario para el nombre del contacto a actualizar
+    if let name = readLine() {
+        // Verificar si el nombre del contacto existe en la agenda
+        if let _ = agenda[name] {
+            // Si el contacto existe, solicitar al usuario que inserte el nuevo número de teléfono
+            print("Please insert the new phone number:")
+            // Leer la entrada del usuario para el nuevo número de teléfono
+            if let newPhoneNumber = readLine(), let _ = Int(newPhoneNumber), newPhoneNumber.count <= 11 {
+                // Validar que el nuevo número de teléfono sea numérico y tenga como máximo 11 dígitos
+                // Actualizar el número de teléfono del contacto en la agenda
+                agenda[name] = newPhoneNumber
+                // Imprimir mensaje de éxito
+                print("Contact updated successfully:")
+                print("Name: \(name)")
+                print("New Phone Number: \(newPhoneNumber)")
+            } else {
+                // Imprimir mensaje de error si el nuevo número de teléfono es inválido
+                print("Invalid phone number. Please insert a numeric phone number with no more than 11 digits.")
+            }
+        } else {
+            // Si el contacto no existe, imprimir mensaje de error
+            print("The contact \(name) doesn't exist.")
+        }
+    } else {
+        // Imprimir mensaje de error si la entrada del nombre del contacto es inválida
+        print("Invalid input, please try again.")
+    }
+}
 
 func myAgenda() {
     var agenda: [String: String] = [:]
-    var selectOption: String?
+    var validOption = true
 
-    while true {
+    while validOption {
         print("""
-            Seleccione una opción:
+            Select an Option:
             1. Insert Contact
             2. Delete Contact
             3. Search Contact
@@ -100,172 +200,28 @@ func myAgenda() {
             5. Exit
             """)
         
-        if let input = readLine() {
-            selectOption = input
+        if let selectOption = readLine() {
+            switch selectOption {
+            case "1":
+                insertContact(agenda: &agenda)
+            case "2":
+                deleteContact(agenda: &agenda)
+            case "3":
+                searchContact(agenda: agenda)
+            case "4":
+                updateContact(agenda: &agenda)
+            case "5":
+                print("Exiting...")
+                validOption = false
+            default:
+                print("Invalid option, please select a valid option (1-5).")
+            }
         } else {
             print("Invalid input, please try again.")
-            continue
-        }
-        
-        switch selectOption {
-        case "1":
-            print("Please insert the name:")
-            if let name = readLine() {
-                print("Please insert the phone number:")
-                if let phoneNumber = readLine(), let _ = Int(phoneNumber), phoneNumber.count <= 11 {
-                    agenda[name] = phoneNumber
-                    print("Contacto agregado exitosamente")
-                } else {
-                    print("Invalid number. Please insert an integer number with no more than 11 digits.")
-                }
-            } else {
-                print("Invalid input, please try again.")
-            }
-        case "2":
-            print("Please insert the name of the contact to delete:")
-            if let name = readLine() {
-                if let _ = agenda.removeValue(forKey: name) {
-                    print("Contact \(name) deleted successfully.")
-                } else {
-                    print("The contact \(name) doesn't exist.")
-                }
-            } else {
-                print("Invalid input, please try again.")
-            }
-        case "3":
-            print("Please insert the name of the contact:")
-            if let name = readLine() {
-                if let phoneNumber = agenda[name] {
-                    print("The \(name)'s number is: \(phoneNumber)")
-                } else {
-                    print("The contact \(name) doesn't exist.")
-                }
-            } else {
-                print("Invalid input, please try again.")
-            }
-        case "4":
-            print("Please insert the name of the contact to update:")
-            if let name = readLine() {
-                if let _ = agenda[name] {
-                    print("Please insert the new phone number:")
-                    if let newPhoneNumber = readLine(), let _ = Int(newPhoneNumber), newPhoneNumber.count <= 11 {
-                        agenda[name] = newPhoneNumber
-                        print("Contact updated successfully:")
-                        print("Name: \(name)")
-                        print("New Phone Number: \(newPhoneNumber)")
-                    } else {
-                        print("Invalid number. Please insert an integer number with no more than 11 digits.")
-                    }
-                } else {
-                    print("The contact \(name) doesn't exist.")
-                }
-            } else {
-                print("Invalid input, please try again.")
-            }
-        case "5":
-            print("Exiting...")
-            return
-        default:
-            print("Invalid option, please select a valid option (1-5).")
         }
     }
 }
 
 // Llamar a la función para iniciar la agenda
 myAgenda()
-
-
-
-/*
-
-func MyAgenda() {
-
-    var selectOption: String?
-    var agenda: [String:String] = [:]
-             
-    while selectOption != "5"{
-        print("""
-            Seleccione una opción:
-            1. Insert Contact
-            2. Delete Contact
-            3. Search Contact
-            4. Update Contact
-            5. Exit
-            """)
-        
-        switch selectOption{
-            case "1":
-                print ("Please insert the name: ")
-                if let name = readLine(){
-                    print("Please inser the phone number: ")
-                    if let phoneNumber = readLine(), let number = Int(phoneNumber), phoneNumber.count <= 11 {
-                        agenda[name] = phoneNumber
-                        print("Contacto agregado exitosamente")
-                    }
-                
-                }
-            case "2":
-                // Eliminar contacto
-                print("Please insert the name of the contact to delete:")
-                if let name = readLine() {
-                    if let _ = agenda.removeValue(forKey: name) {
-                        print("Contact \(name) deleted successfully.")
-                    } else {
-                        print("The contact \(name) doesn't exist.")
-                    }
-                } else {
-                    print("Invalid input, please try again.")
-                }
-            case "3":
-                // Solicitar al usuario que ingrese el nombre del contacto a buscar
-                print("Please insert the name of the contact")
-                if let name = readLine() {
-                    // Verificar si el nombre está presente en el diccionario
-                    if let phoneNumber = agenda[name] {
-                        // Si se encuentra, mostrar el número de teléfono correspondiente
-                        print("the \(name)`s number is: \(phoneNumber)")
-                    } else {
-                        // Si no se encuentra, mostrar un mensaje indicando que el contacto no existe
-                        print("The contact \(name) doesn`t exist")
-                    }
-                    } else {
-                        // Manejar una entrada inválida del usuario
-                        print("Invalid Input, please try again.")
-                    }
-                
-            case "4":
-                print("Please insert the name of the contact to update:")
-                    if let name = readLine() {
-                        if let _ = agenda[name] {
-                            print("Please insert the new phone number:")
-                            if let newPhoneNumber = readLine(), let _ = Int(newPhoneNumber), newPhoneNumber.count <= 11 {
-                                agenda[name] = newPhoneNumber
-                                print("Contact updated successfully:")
-                                print("Name: \(name)")
-                                print("New Phone Number: \(newPhoneNumber)")
-                            } else {
-                                print("Invalid number. Please insert an integer number with no more than 11 digits.")
-                            }
-                        } else {
-                            print("The contact \(name) doesn't exist.")
-                        }
-                    } else {
-                        print("Invalid input, please try again.")
-                    }
-            case "5":
-                print("Exiting")
-                break
-                
-            case _:
-                print("Invalid Option, select a Valid Option 1-5")
-        }
-        
-    }
-    
-}
-
-MyAgenda()
-2
-
- */
 

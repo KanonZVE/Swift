@@ -33,7 +33,7 @@ enum SumError: Error {
 }
 
 // Whats goin on mrs
-func doIt(){
+/*func doIt(){
     do {
         print(try sum(firstNumber: 100, secondNumber: -50))
     } catch SumError.firstNumberNil {
@@ -44,3 +44,4 @@ func doIt(){
         print("Hay algún número negativo. firstNumber:\(firstNumber), secondNumber:\(secondNumber)")
     }
 }
+*/
