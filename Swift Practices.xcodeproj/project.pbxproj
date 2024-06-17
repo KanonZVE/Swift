@@ -51,6 +51,7 @@
 		376F2D7C2C0FF49600DEC4F0 /* 0_Challenge.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 0_Challenge.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		376F2D7D2C0FF59C00DEC4F0 /* 2_Challenge.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 2_Challenge.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		37D2EDC92C18AA0D0082D805 /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		37D781DC2C20E42C00D2980A /* 4_Challenge.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 4_Challenge.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		37DE94C52C0FD3840087A788 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +147,7 @@
 				376F2D7D2C0FF59C00DEC4F0 /* 2_Challenge.playground */,
 				3726B2132C12914A00B7741C /* 3_Challenge.playground */,
 				37D2EDC92C18AA0D0082D805 /* Test.playground */,
+				37D781DC2C20E42C00D2980A /* 4_Challenge.playground */,
 			);
 			path = "Swift Challenge";
 			sourceTree = "<group>";
