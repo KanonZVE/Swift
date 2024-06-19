@@ -47,6 +47,13 @@ let minusculas = mensaje.lowercased()
 let indice = mensaje.index(mensaje.startIndex, offsetBy: 7)
 let substring = mensaje[indice...]
 
+//Conversion de tipo de dato
+
+let numeroString = "123"
+if let numero = Int(numeroString) {
+    print("Número: \(numero)")
+}
+
 
 
 
